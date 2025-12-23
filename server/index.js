@@ -19,5 +19,9 @@ if (!process.env.URL) {
     .then(() => console.log("DB OK"))
     .catch(err => console.log("DB Error:", err));
 }
+// ... existing imports
+const taskRoute = require('./routes/tasks');
 
+// ... existing app.use lines
+app.use('/api/tasks', taskRoute);
 app.listen(5000, () => console.log("Server OK"));
