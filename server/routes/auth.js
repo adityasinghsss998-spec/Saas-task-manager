@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/User');
+const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => {
     email: req.body.email,
     pass: hash,
     org: req.body.org,
-    role: req.body.role || 'Developer' // Default to Developer if no role is sent
+    role: req.body.role || 'Developer'
   });
 
   try {
@@ -22,3 +22,5 @@ router.post('/register', async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+module.exports = router; 
